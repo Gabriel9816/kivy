@@ -1,0 +1,56 @@
+Manager:
+  Home:
+#  Chat:
+#  CameraClick:
+
+<Home>:
+  name:"home"
+  BoxLayout:
+    orientation: 'vertical'
+    cols:1
+    Camera:
+      id:camera
+      resolution: (640,480)
+      play: True
+    Button:
+      text: 'Tirar Foto'
+      size_hint_y: None
+      height: '48dp'
+      on_press: app.capture()
+    AsyncImage:
+      id:imguser 
+      source:''
+      width: 100
+      allow_stretch: True
+    Button:
+      id:get_photo
+      text:'pegar menssage'
+      on_release: app.get_message()
+      size_hint_y: None
+      height: '48dp'
+    TextInput:
+      id:inpt_codigo_room
+      hint_text:"numero da sala"
+      size_hint_y: None
+      height: '48dp'
+    Label:
+      id:idsala
+      text: 
+      size_hint_y: None
+      height: '48dp'
+    Button:
+      id:btn_join_room
+      text: "entrar na sala"
+      on_press:app.join_room()
+      size_hint_y: None
+      height: '48dp'
+    Button:
+      id:btn_create_room
+      text: "criar sala"
+      on_press: app.new_conversation()
+      size_hint_y: None
+      height: '48dp'
+    
+    
+
+

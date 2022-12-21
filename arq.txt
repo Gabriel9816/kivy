@@ -1,0 +1,36 @@
+<Chat>:
+  name:"chat"
+  BoxLayout:
+    orientation:'vertical'
+    AsyncImage:
+      id:imguser 
+      source:''
+      width: 100
+      allow_stretch: True
+    Button:
+      id:get_photo
+      text:'pegar message'
+      on_release: app.get_message()
+    Button:
+      id:picture
+      text:'Tirar Foto'
+      on_release:app.root.current='camera'
+
+<CameraClick>:
+  name:"camera"
+  BoxLayout:
+    orientation: 'vertical'
+    Camera:
+      id:camera
+      resolution: (640,480)
+      play: True
+    Button:
+      text: 'Capture'
+      size_hint_y: None
+      height: '48dp'
+      on_press: app.capture()
+    Button:
+      text: 'Voltar'
+      size_hint_y: None
+      height: '48dp'
+      on_release: app.root.current='chat'
