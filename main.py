@@ -9,7 +9,7 @@ import random
 import requests
 
 end_ip = "http://192.168.0.191:5000"
-class Manager(ScreenManager):
+class Gerenciador(ScreenManager):
     pass
 
 class Home(Screen):
@@ -24,8 +24,7 @@ class MyApp(App):
         request=requests.get(end_ip+"/new_conversation")
         json = request.json()
         room_key = json['path']
-        self.file.get_screen(
-            'home').ids['idsala'].text = f'Codigo da sala: {room_key}'
+        self.file.get_screen('home').ids['idsala'].text = f'Codigo da sala: {room_key}'
         return
 
     def join_room(self):
@@ -61,5 +60,5 @@ class MyApp(App):
         json = request.json()
         room_key = json['path']
         self.file.get_screen('home').ids['imguser'].source = room_key 
-        
+
 MyApp().run()
